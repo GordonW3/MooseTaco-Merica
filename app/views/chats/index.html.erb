@@ -1,0 +1,25 @@
+<h1>Merica!</h1>
+
+<%= video_tag "Most_American_video_ever_made.mp4", controls: true, autoplay: true, type: 
+"video/mp4" %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Leave your patriotic commits below!</h1>
+
+<p><%= link_to 'New Chat', new_chat_path %></p>
+
+<% @chats.each do |chat| %>
+  <div class="center">
+    <p id="title" class="name"><%= chat.name %></p>
+    <p id="title"><%= image_tag chat.image %></p>
+  </div>
+  <p class="chat_box"><%= chat.chat %></p>
+  <ul>
+    <li><%= link_to 'Show', chat %></li>
+    <li><%= link_to 'Edit', edit_chat_path(chat) %></li>
+    <li><%= link_to 'Destroy', chat, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </ul>
+<% end %>
+
+
